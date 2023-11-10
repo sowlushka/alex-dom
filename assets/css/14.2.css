@@ -1,0 +1,54 @@
+:root{
+    --content-width: 90vw;
+    --content-width-max: 800px;
+    --header-margin-vertical: 10px;
+    --header-padding-vertical: 10px;
+    --logo-img-size: 30%;
+    --h1-height-min: 40px;
+    --h1-height-coeff: 0.1;
+}
+
+body{
+    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #0B2349);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+header{
+    position: relative;
+    z-index: 0;
+    margin: var(--header-margin-vertical)  auto;
+    padding: var(--header-padding-vertical);
+    max-width: var(--content-width-max);
+    width: var(--content-width);
+    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #0B2349);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 1px solid red;
+}
+
+h1{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: linear-gradient(45deg, #11859C , #EE373F);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: calc(var(--h1-height-min) + var(--h1-height-coeff) * var(--content-width));
+    line-height: calc(var(--h1-height-min) + var(--h1-height-coeff) * var(--content-width));
+    padding: 0px;
+    margin: 0px;
+    margin-block: 0px;
+    border: 1px solid blue;
+}
+
+.img-logo{
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: calc(50% - var(--logo-img-size) / 2);
+    opacity: 0.4;
+    height: 100%;
+}
