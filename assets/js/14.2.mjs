@@ -1,24 +1,10 @@
+import { navDataArr } from "./nav.mjs";
+import { asideData } from "./aside.mjs";
+
+
 let body=document.querySelector('body');
 const logoSrc="./assets/img/logo.png";
 
-const navDataArr=[
-    {
-        caption: "Задача 1",
-        link: "./index1.html",
-        target: true
-    },
-    {
-        caption: "Тема",
-        link: "https://nwillis.notion.site/14-DOM-507f77a7a0b34c278c56dc6890b03173",
-        target: true
-    },
-    {
-        caption: "Задача 2",
-        link: "./index.html",
-        target: false
-    }
-
-];
 
 
 let headerHTML=`
@@ -28,25 +14,37 @@ let headerHTML=`
     </header>
 `;
 
-let navHTML=`
-    <nav>
-    </nav>
-`;
 
-
-body.insertAdjacentHTML('afterbegin',headerHTML);
-body.insertAdjacentHTML('beforeend', navHTML);
-
-const nav=body.querySelector("nav");
-
+let nav = document.createElement('nav');
 //Наполняем панель навигации
 navDataArr.forEach(createNavElement);
+
+const contentWrapper=document.createElement('div');
+contentWrapper.className="content-wrapper";
+const main=document.createElement('main');
+const aside=document.createElement('aside');
+contentWrapper.append(main);
+contentWrapper.append(aside);
+main.innerHTML="Временно блок main";
+createAsideContant(asideData);
+
+
+let iframe=document.createElement('iframe');
+iframe.src="./assets/articles/art1.txt";
+iframe.style.display="none";
+body.append(iframe);
+let articles=iframe.contentWindow.document;
+//let arrH1=articles.querySelectorAll('h1');
+
+body.insertAdjacentHTML('afterbegin',headerHTML);
+body.append(nav);
+body.append(contentWrapper);
 
 
 
 
 function createNavElement(navData){
-//Создать узел из объекта navData
+//Создать узел из объекта navData в панели навигации
     let div = document.createElement('div');
     div.className = "nav-element";
 
@@ -55,4 +53,21 @@ function createNavElement(navData){
         <a href="${navData.link}" ${target}>${navData.caption}</a>
     `;
     nav.append(div);
+}
+
+function createAsideContant(asideData){
+//Создать контент для aside
+    const h3=document.createElement('h3');
+    h3.innerHTML=`<a href="${asideData.captionLink}" target="_blank">${asideData.caption}</a>`;
+    aside.insertAdjacentElement('afterbegin',h3);
+    let ul=document.createElement('ul');
+
+
+    asideData.contant.forEach(el=>{
+        let liHTML=`
+                <li><a href="${el.link}" target="_blank">${el.caption}</a></li>
+        `;
+        ul.insertAdjacentHTML('beforeend',liHTML);
+    });
+    aside.append(ul);
 }

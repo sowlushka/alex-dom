@@ -7,7 +7,8 @@
     --h1-height-min: 40px;
     --height-coeff-h1: 0.1;
     --nav-a-font-size-min: 15px;
-    --height-coeff-nav: 0.015;
+    --height-coeff-nav: 0.01;
+    --wrapper-element-vertical-margin: 10px;
 }
 
 body{
@@ -58,9 +59,64 @@ h1{
 nav{
     display: flex;
     justify-content: space-evenly;
+    column-gap: 10px;
 }
 
 nav a{
     text-decoration: none;
     font-size: calc(var(--nav-a-font-size-min) + var(--height-coeff-nav) * var(--content-width));
+}
+
+nav a:hover{
+    color:#12640f;
+}
+
+.content-wrapper{
+    display: flex;
+    gap: 20px;
+    margin: 5px 1vw;
+}
+
+main{
+    margin: var(--wrapper-element-vertical-margin) 0px;
+    flex-grow: 1;
+    border: 1px solid #2b5494;
+}
+
+aside{
+    padding: 3px;
+    margin: var(--wrapper-element-vertical-margin) 0px;
+    min-width: 100px;
+    border: 1px solid green;
+}
+
+aside a{
+    color:#061b3b;
+    text-decoration: none;
+}
+
+aside a:hover{
+    color:#12640f;
+}
+
+aside h3{
+    text-align: center;
+}
+
+aside ul{
+    padding-left: 1.3em;
+    margin: 3px auto;
+}
+
+@media (max-width: 560px) {
+    .content-wrapper{
+        display: block;
+    }
+
+    aside ul{
+        column-count: 2;
+        column-fill: balance;
+        column-gap: 25px;
+    }
+    
 }
