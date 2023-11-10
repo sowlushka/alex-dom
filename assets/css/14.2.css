@@ -11,7 +11,7 @@
 }
 
 body{
-    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #0B2349);
+    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #2b5494);
     background-repeat: no-repeat;
     min-height: 100vh;
 }
@@ -23,7 +23,7 @@ header{
     padding: var(--header-padding-vertical);
     max-width: var(--content-width-max);
     width: var(--content-width);
-    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #0B2349);
+    background: linear-gradient(215deg, #8AA9D6 33%, #0D61BC 66%, #2b5494);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
