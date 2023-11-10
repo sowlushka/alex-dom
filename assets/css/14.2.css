@@ -5,7 +5,9 @@
     --header-padding-vertical: 10px;
     --logo-img-size: 30%;
     --h1-height-min: 40px;
-    --h1-height-coeff: 0.1;
+    --height-coeff-h1: 0.1;
+    --nav-a-font-size-min: 15px;
+    --height-coeff-nav: 0.015;
 }
 
 body{
@@ -36,8 +38,8 @@ h1{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: calc(var(--h1-height-min) + var(--h1-height-coeff) * var(--content-width));
-    line-height: calc(var(--h1-height-min) + var(--h1-height-coeff) * var(--content-width));
+    font-size: calc(var(--h1-height-min) + var(--height-coeff-h1) * var(--content-width));
+    line-height: calc(var(--h1-height-min) + var(--height-coeff-h1) * var(--content-width));
     padding: 0px;
     margin: 0px;
     margin-block: 0px;
@@ -51,4 +53,14 @@ h1{
     left: calc(50% - var(--logo-img-size) / 2);
     opacity: 0.4;
     height: 100%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a{
+    text-decoration: none;
+    font-size: calc(var(--nav-a-font-size-min) + var(--height-coeff-nav) * var(--content-width));
 }
